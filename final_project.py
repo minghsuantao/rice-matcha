@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+import sqlite3
 CACHE_FILENAME = "cache.json"
 
 
@@ -266,8 +267,41 @@ def make_url_request_using_cache(url,params={}):
     # create tables and columns
     # city table: City and text, state
     # attraction table: ID(autoincrement), attraction name, rating, reviews, category, City (foreign key)
+
+def create_db():
+    conn = sqlite3.connect('trip_advisor.sqlite')
+    cur = conn.cursor()
+
+    drop_city_sql = 'DROP TABLE IF EXISTS "City"'
+    drop_attractions_sql = 'DROP TABLE IF EXISTS "Attractions"'
+    
+    create_city_sql ='''
+        CREATE TABLE "City" (
+            "CityName"  TEXT PRIMARY KEY UNIQUE,
+            "CityInfo"  TEXT NOT NULL
+            )
+    '''
+    
+    create_attractions_sql = '''
+        CREATE TABLE 'Attractions'(
+            'AttractionName' TEXT PRIMARY KEY UNIQUE,
+            'Category' TEXT NOT NULL,
+            'Rating' INTEGRER NOT NULL,
+            'CityName' TEXT NOT NULL
+        )
+    '''
+    cur.execute(drop_city_sql)
+    cur.execute(drop_attractions_sql)
+    cur.execute(create_city_sql)
+    cur.execute(create_attractions_sql)
+    conn.commit()
+    conn.close()
+
+create_db()
+
     # put all the data in sql:  
     # select (*) from city where city = "Ann Arbor". If no result, info is not in database. Call request from code. 
     # write another function about Inserting. Call the function inside of the exisitng functions. 
     # write info into database before writing class. 
+
     
