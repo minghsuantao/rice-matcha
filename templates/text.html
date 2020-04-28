@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>About {{city}}</title>
+</head>
+<style>
+        p{
+        width:800px;
+    }
+        p.big {
+    line-height: 1.8;
+    }
+</style>
+<body>
+    <h2>
+        {{city}}
+    </h2>
+    <p>
+        Let me tell you about {{city}}:
+    </p>
+    <p>
+        {{text}}
+    </p>
+    <p>
+    To see the top 5 attractions in {{city}}, click <a href='/attraction/{{city}}'>here</a>.
+    Or return to <a href='/'>Homepage</a>.
+    </p>
+    <form action="/text" method="POST"></form>
+</body>
+</html>

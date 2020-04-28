@@ -1,3 +1,17 @@
-HELLO
+Steps of using my final_project.py code:
 
-This should explain my program.
+1. A database trip_advisor.sqlite is created with create_db().
+2. Create a city dictionary using the city_dict(urls) function. The variables for this are a list of the urls that have a list of popular city names. 
+3. Take that city dictionary and use its values (url for each city) to insert in the open_links(url) function. Open_links(url) retrieves all the information needed to build the database.
+4. The outcome of open_links(url) is then appended to the cities list. The list should contain many objects of city instances (cityname, text, attraction).
+5. Load the cities list into sql using the load_city(cities) and load_attraction(cities).
+
+Other functions:
+1. Classes: I have a city class and an attraction class. 
+2. Cache: I have open_cache(), save_cache(), and make_url_request_using_cache() to fetch data from cache.json.
+3. Getting attraction instances: get_attraction_for_instances() function is inside the open_links() function. It retrieves information about each attraction, and returns five attraction instances of a city in a list.
+
+What's in presentation.py:
+Code of 5 html templates: index, text, attraction, plot_avg_rating, and plot_avg_reviews
+
+Python packages needed: sqlite3, beautiful soup, sqlite3, plotly.graph_objs, requests, flask, render template, request

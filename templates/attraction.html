@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>About {{city}}'s top 5 attractions</title>
+</head>
+<style>
+    p.big {
+  line-height: 1.8;
+}
+
+</style>
+<body>
+    <h2>
+        {{city}}
+    </h2>
+    <p class="big">
+            {% for attraction in results %}
+                {{attraction[0]}} ({{attraction[1]}}), {{attraction[2]}} stars, {{attraction[3]}} reviews<br>
+            {% endfor %}
+    </p>
+    <p>
+    Return to <a href='/'>Homepage</a>. 
+    </p>
+</body>
+</html>

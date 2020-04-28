@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+</head>
+<body>
+    <h1>Welcome to Michelle Tao's Popular Cities Info Hub</h1>
+    <h2>
+        Please select a city you would like to know more about...
+    </h2>
+    <form action="/text" method="POST">
+    <p>
+        <select id="cities" name="cities">
+            {% for i in range(length) %}
+            <option value="{{results[i][0]}}">{{results[i][0]}}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <h2>
+        Or select <a href='/plot_avg_rating'>rating</a> / <a href='/plot_avg_reviews'>reviews</a> if you would like to see the average of the top 5 attractions in each city.
+    </h2>
+
+
+    <input type='submit' value='Submit'/>
+    </form>
+    <p>
+    <img src="https://media.giphy.com/media/l0IykggGSYfLIgYJa/giphy.gif" width=400 />
+    </p>
+</body>
+</html>
